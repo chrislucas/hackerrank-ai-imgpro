@@ -46,7 +46,7 @@ public class Dilation {
     }
 
     private static void test1() {
-        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp7.png");
+        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp5.png");
         System.out.printf("Dimensao da imagem: W: %d H %d.\n", image.getWidth(), image.getHeight());
         int [][] matrix = BufferedImageUtils.toBinaryMatrix(image);
         boolean created = BufferedImageUtils.createImage(
@@ -54,11 +54,10 @@ public class Dilation {
                 , "raw/output/output_bin_dilatation_1.png", "png");
         System.out.println(created ? "Criado" : "Não Criado");
 
-        Struct struct = new Struct(0, 1, ElementStruct.e1);
-        int result [][] = Dilation.dilation(matrix, struct);
+        int result [][] = Dilation.dilation(matrix, ElementStruct.e6);
         created = BufferedImageUtils.createImage(
                 BufferedImageUtils.toBinaryBufferedImage(result)
-                , "raw/ouput/output_bin_dilatation_2.png", "png");
+                , "raw/output/output_bin_dilatation_2.png", "png");
         System.out.println(created ? "Criado" : "Não Criado");
 
     }

@@ -16,7 +16,7 @@ public class Closing {
     }
 
     private static void test() {
-        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp7.png");
+        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp6.png");
         System.out.printf("Dimensao da imagem: W: %d H %d.\n", image.getWidth(), image.getHeight());
         int [][] matrix = BufferedImageUtils.toBinaryMatrix(image);
         boolean created = BufferedImageUtils.createImage(
@@ -24,8 +24,8 @@ public class Closing {
                 , "raw/output/output_bin_closing_1.png", "png");
         System.out.println(created ? "Criado" : "Não Criado");
 
-        Struct struct = new Struct(0, 1, ElementStruct.e6);
-        int result [][] = closing(matrix, struct);
+
+        int result [][] = closing(matrix, ElementStruct.e6);
         created = BufferedImageUtils.createImage(
                 BufferedImageUtils.toBinaryBufferedImage(result)
                 , "raw/output/output_bin_closing_2.png", "png");

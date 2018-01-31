@@ -49,7 +49,7 @@ public class Erosion {
     }
 
     public static void test() {
-        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp7.png");
+        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp6.png");
         System.out.printf("Dimensao da imagem: W: %d H %d.\n", image.getWidth(), image.getHeight());
         int [][] matrix = BufferedImageUtils.toBinaryMatrix(image);
         boolean created = BufferedImageUtils.createImage(
@@ -57,8 +57,8 @@ public class Erosion {
                 , "raw/output/output_bin_erosion_1.png", "png");
         System.out.println(created ? "Criado" : "Não Criado");
 
-        Struct struct = new Struct(0, 1, ElementStruct.e1);
-        int result [][] = erosion(matrix, struct);
+
+        int result [][] = erosion(matrix, ElementStruct.e6);
         created = BufferedImageUtils.createImage(
                 BufferedImageUtils.toBinaryBufferedImage(result)
                 , "raw/output/output_bin_erosion_2.png", "png");
