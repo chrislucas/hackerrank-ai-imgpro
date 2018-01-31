@@ -49,7 +49,7 @@ public class Erosion {
     }
 
     public static void test() {
-        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp6.png");
+        BufferedImage image = BufferedImageUtils.openImage("raw/img-samples/wp8.png");
         System.out.printf("Dimensao da imagem: W: %d H %d.\n", image.getWidth(), image.getHeight());
         int [][] matrix = BufferedImageUtils.toBinaryMatrix(image);
         boolean created = BufferedImageUtils.createImage(
