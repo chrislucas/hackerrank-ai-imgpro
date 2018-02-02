@@ -79,11 +79,11 @@ public class MOErosion {
         int counter = 0;
         for (int i = 0; i < copy.length ; i++) {
             for (int j = 0; j < copy[i].length ; j++) {
-                //System.out.printf("%d", copy[i][j]);
+                System.out.printf("%d", copy[i][j]);
                 if(copy[i][j] == 1)
                     counter++;
             }
-            //System.out.println("");
+            System.out.println("");
         }
         return counter;
     }

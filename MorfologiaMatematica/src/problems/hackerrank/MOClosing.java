@@ -36,7 +36,6 @@ public class MOClosing {
 
     public static int [][] dilation(int matrix [][], int [][] e) {
         int [][] copy = new int[matrix.length][matrix[0].length];
-
         int limitI = copy.length;
         int limitJ = copy[0].length;
         int limitK = e.length;
@@ -58,7 +57,6 @@ public class MOClosing {
         int [][] copy = new int[matrix.length][matrix[0].length];
         for(int i=0; i<copy.length; i++)
             System.arraycopy(matrix[i], 0, copy[i], 0, copy[i].length);
-
         int limitI = copy.length;
         int limitJ = copy[0].length;
         int limitK = e.length;
