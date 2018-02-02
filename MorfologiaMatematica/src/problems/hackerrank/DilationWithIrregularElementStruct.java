@@ -1,5 +1,9 @@
 package problems.hackerrank;
 
+/**
+ * https://www.hackerrank.com/challenges/dip-morphological-operations-dilation-with-an-irregular-structuring-element/problem
+ * */
+
 public class DilationWithIrregularElementStruct {
     public static int [][] addPadding(int [][] image) {
         int [][] copy = new int[image.length+2][image[0].length+2];
