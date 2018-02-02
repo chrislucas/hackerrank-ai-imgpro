@@ -19,7 +19,7 @@ public class ErosionWithElementStruct {
     public static int [][] erosion(int [][] binImage, int e [][], int ie, int je) {
         int [][] binImagePadding = addPadding(binImage);
         int [][] copy = addPadding(binImage);
-        print(binImagePadding, 1);
+        //print(binImagePadding, 1);
         int limitI = copy.length;
         int limitJ = copy[0].length;
         int limitK = e.length;
@@ -34,7 +34,7 @@ public class ErosionWithElementStruct {
                 }
             }
         }
-        print(copy, 1);
+        //print(copy, 1);
         return copy;
     }
 
@@ -67,6 +67,7 @@ public class ErosionWithElementStruct {
             ,{1,1,1,1,1}
         };
         int e [][] = new int[][] {{1,1,1}} ;
-        System.out.println(count(erosion(binImage, e, 1, 0)));
+        //System.out.println(count(erosion(binImage, e, 1, 0)));
+        print(erosion(binImage, e, 1, 0), 0);
     }
 }

@@ -11,7 +11,6 @@ public class DilationWithIrregularElementStruct {
         return copy;
     }
 
-
     public static int [][] dilation(int [][] image, int e [][], int ie, int je) {
         int imagePad [][] = addPadding(image);
         int copy [][] = addPadding(image);
@@ -31,7 +30,6 @@ public class DilationWithIrregularElementStruct {
         }
         return copy;
     }
-
 
     public static void print(int [][] matrix, int padding) {
         for (int i = padding; i < matrix.length-padding; i++) {
