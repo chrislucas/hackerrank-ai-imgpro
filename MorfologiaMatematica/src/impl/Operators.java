@@ -1,9 +1,13 @@
 package impl;
 
+import sun.awt.image.BufferedImageDevice;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Created by C_Luc on 17/06/2017.
@@ -11,23 +15,21 @@ import java.io.File;
  */
 public class Operators {
 
-
-    static class Template {
-        public static int [][] t1 = {
+    public static class Template {
+        private static int [][] t1 = {
              {0,1,0}
             ,{1,1,1}
             ,{0,1,0}
         };
-
-        public static int [][] t2 = {
+        private static int [][] t2 = {
              {1,1,1}
             ,{1,1,1}
             ,{1,1,1}
         };
     }
 
-    static class BinaryImage {
-        static int matrix1 [][] = {
+    public static class BinaryImage {
+        private static int matrix1 [][] = {
              {0,0,0,0,0,0}
             ,{0,0,1,1,1,0}
             ,{0,1,1,1,1,1}
@@ -36,13 +38,8 @@ public class Operators {
             ,{0,1,1,1,1,1}
             ,{0,1,1,1,1,1}
         };
-
-        static int matrix2 [][] = {
-
-        };
+        private static int matrix2 [][] = {};
     }
-
-
 
     private static void print(int [][] matrix) {
         int h = matrix.length;
@@ -157,35 +154,7 @@ public class Operators {
 
     public static boolean operation(int pixelImage, int pixelTemplate
             , int matrix[][], int operation, int i, int j) {
-
         return false;
-    }
-
-    public static int [][] toBinaryMatrix(BufferedImage bufferedImage) {
-        int w = bufferedImage.getWidth();
-        int h = bufferedImage.getHeight();
-        int binaryImage [][] = new int[h][w];
-        for (int i = 0; i <h ; i++) {
-            for (int j = 0; j <w ; j++) {
-                int c = bufferedImage.getRGB(j, i);
-                Color color = new Color(c);
-                int m = (color.getRed() + color.getGreen() + color.getBlue()) / 3;
-                m = m > 0 ? 1 : 0;
-                binaryImage[i][j] = m;
-            }
-        }
-        return binaryImage;
-    }
-
-    public static BufferedImage openImage(String pathname) {
-        BufferedImage bufferedImage =  null;
-        try {
-            bufferedImage = ImageIO.read(new File(pathname));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        return bufferedImage;
     }
 
     public static void main(String[] args) {
