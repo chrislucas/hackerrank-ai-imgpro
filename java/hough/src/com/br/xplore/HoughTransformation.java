@@ -195,6 +195,12 @@ public class HoughTransformation {
         }
     }
 
+
+    private static double [] cartesianToPolar(double x, double y) {
+        double [] coord = {Math.sqrt(x*x+y*y), 1/Math.tan(y/x)};
+        return coord;
+    }
+
     private static void initialize(int h, int w) {
         houghHeight = Math.round((float)Math.sqrt(2)*Math.max(h, w)/2);
         houghSpace = new int[MAX_THETA][2*houghHeight];
@@ -209,6 +215,9 @@ public class HoughTransformation {
     }
 
     public static void main(String[] args) {
+
+        cartesianToPolar(12, 5);
+
         try {
             String [] imageNames = {"wp4.png", "wp8.jpeg", "Koala.jpg", "wp10.png", "wp11.png"};
             String path = String.format("raw/imgs/%s", imageNames[4]);
