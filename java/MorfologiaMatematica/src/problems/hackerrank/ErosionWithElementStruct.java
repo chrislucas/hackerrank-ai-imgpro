@@ -28,7 +28,7 @@ public class ErosionWithElementStruct {
             for (int j = 0; j < limitJ - limitL; j++) {
                 for (int k = 0; k < limitK ; k++) {
                     for (int l = 0; l < limitL; l++) {
-                        if(binImagePadding[i+k][j+l] == 0)
+                        if(binImagePadding[i+k][j+l] == 0 && e[k][l] == 1)
                             copy[i+ie][j+je] = 0;
                     }
                 }
@@ -48,16 +48,6 @@ public class ErosionWithElementStruct {
         System.out.println("");
     }
 
-    public static int count(int [][] matrix) {
-        int counter = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j <matrix[i].length; j++) {
-                if(matrix[i][j] == 1)
-                    counter++;
-            }
-        }
-        return counter;
-    }
 
     public static void main(String[] args) {
         int binImage [][] = new int[][] {
@@ -67,7 +57,6 @@ public class ErosionWithElementStruct {
             ,{1,1,1,1,1}
         };
         int e [][] = new int[][] {{1,1,1}} ;
-        //System.out.println(count(erosion(binImage, e, 1, 0)));
         print(erosion(binImage, e, 1, 0), 0);
     }
 }

@@ -1,5 +1,9 @@
 package problems.hackerrank;
 
+/**
+ * DONE
+ * */
+
 public class MOOpening {
 
     public static int [][] addPadding(int [][] image) {
@@ -96,4 +100,5 @@ public class MOOpening {
         int [][] E = {{1,1,1},{1,1,1},{1,1,1}};
         System.out.println(opening(BIN_IMAGE, E));
     }
+
 }

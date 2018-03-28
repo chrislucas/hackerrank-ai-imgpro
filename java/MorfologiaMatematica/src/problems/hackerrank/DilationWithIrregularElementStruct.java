@@ -26,7 +26,7 @@ public class DilationWithIrregularElementStruct {
             for (int j = 0; j < limitJ - limitL ; j++) {
                 for (int k = 0; k < limitK; k++) {
                     for (int l = 0; l < limitL ; l++) {
-                        if(imagePad[i+k][j+l] == 1)
+                        if(imagePad[i+k][j+l] == 1 && e[k][l] == 1)
                             copy[i+ie][j+je] = 1;
                     }
                 }
