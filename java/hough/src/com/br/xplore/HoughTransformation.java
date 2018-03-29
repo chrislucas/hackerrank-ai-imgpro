@@ -172,6 +172,37 @@ public class HoughTransformation {
         return copy;
     }
 
+    private static int [][] applySobelOperator(int [][] matrixImage) {
+        int h = matrixImage.length + 2, w = matrixImage[0].length + 2;
+        int hh = SOBEL_X.length, ww = SOBEL_X[0].length;
+        int [][] copy = new int[h][w];
+        copyMatrix(matrixImage, copy, 1,1, h-2);
+
+        int centerH = hh / 2, centerW = ww / 2;
+        for (int i = 0; i < h - 2 - hh + 1 ; i++) {
+            for (int j = 0; j < w - 2 - ww + 1 ; j++) {
+                int accX = 0;
+                for (int k = 0; k < hh ; k++) {
+                    for (int l = 0; l < ww; l++) {
+                        int c = matrixImage[i+k][j+l];
+                        accX += c * SOBEL_X[k][l];
+                    }
+                }
+
+                int accY = 0;
+                for (int k = 0; k < hh ; k++) {
+                    for (int l = 0; l < ww; l++) {
+                        int c = matrixImage[i+k][j+l];
+                        accY += c * SOBEL_Y[k][l];
+                    }
+                }
+                int g = (int)Math.sqrt(accX*accX + accY * accY);
+                g = g < 0 ? 0 : g > 255 ? 255 : g;
+                copy[i+centerH][j+centerW] = g;
+            }
+        }
+    }
+
 
     private static void addPoints(int [][] matrix) {
         int h = matrix.length, w = matrix[0].length;
@@ -197,7 +228,7 @@ public class HoughTransformation {
 
 
     private static double [] cartesianToPolar(double x, double y) {
-        double [] coord = {Math.sqrt(x*x+y*y), 1/Math.tan(y/x)};
+        double [] coord = {Math.sqrt(x*x+y*y), Math.atan(5/12)*180.0/Math.PI};
         return coord;
     }
 
@@ -214,6 +245,18 @@ public class HoughTransformation {
         centerH = h/2;
     }
 
+    private static int [][] testApplyMask(BufferedImage imageInGrayScale) {
+        int [][] matrix = createIntegerMatrixRGB(imageInGrayScale);
+        int [][] cp = applyMask(SOBEL_X, matrix);
+        cp = applyMask(SOBEL_Y, cp);
+        return cp;
+    }
+
+    private static int [][] testApplySobelOperator(BufferedImage imageInGrayScale) {
+        int [][] matrix = createIntegerMatrixRGB(imageInGrayScale);
+        return applySobelOperator(matrix);
+    }
+
     public static void main(String[] args) {
 
         cartesianToPolar(12, 5);
@@ -222,14 +265,12 @@ public class HoughTransformation {
             String [] imageNames = {"wp4.png", "wp8.jpeg", "Koala.jpg", "wp10.png", "wp11.png"};
             String path = String.format("raw/imgs/%s", imageNames[4]);
             BufferedImage imageInGrayScale = copyInGrayScale(readImage(path));
-            int [][] matrix = createIntegerMatrixRGB(imageInGrayScale);
-            int [][] cp = applyMask(SOBEL_X, matrix);
-            cp = applyMask(SOBEL_Y, cp);
+            /*
+            int [][] cp = testApplyMask(imageInGrayScale);
             initialize(cp.length, cp[0].length);
-
             addPoints(cp);
-
-
+            */
+            int [][] cp = testApplySobelOperator(imageInGrayScale);
             BufferedImage result = createBufferedImage(cp, BufferedImage.TYPE_BYTE_GRAY);
             boolean flag = writeImage(result, "raw/out/out.jpg", "jpg");
             if (flag) {

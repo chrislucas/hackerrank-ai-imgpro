@@ -1,0 +1,30 @@
+Why is the inverse tangent function not equivalent to the reciprocal of the tangent function?
+https://math.stackexchange.com/questions/1820768/why-is-the-inverse-tangent-function-not-equivalent-to-the-reciprocal-of-the-tang
+
+
+arctan
+https://www.rapidtables.com/math/trigonometry/arctan.html
+
+Inverse trigonometric function
+https://en.wikipedia.org/wiki/Inverse_trigonometric_functions
+
+https://www.mathsisfun.com/sine-cosine-tangent.html
+"Sine, Cosine and Tangent (often shortened to sin, cos and tan) are each a ratio of sides of a right angled triangle:"
+
+Cotangente
+https://pt.wikipedia.org/wiki/Cotangente
+
+Arctangent function
+https://www.rapidtables.com/math/trigonometry/arctan.html
+https://www.rapidtables.com/math/trigonometry/arctan/arctan-of-1.html
+
+tan(y) =: x
+
+arcttan(x) == tan ^ (-1) (x) =: y
+
+y = 45
+tan(45 * PI / 180) = 1
+x =: 1
+arctan(1) * 180 / 1 = 45
+
+arctan(1) * 180 / PI == tan(1 * PI / 180)
