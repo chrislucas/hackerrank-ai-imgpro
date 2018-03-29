@@ -201,6 +201,7 @@ public class HoughTransformation {
                 copy[i+centerH][j+centerW] = g;
             }
         }
+        return copy;
     }
 
 

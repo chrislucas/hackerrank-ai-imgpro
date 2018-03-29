@@ -28,8 +28,8 @@
       <file leaf-file-name="HoughTransformation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/br/xplore/HoughTransformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="272" column="67" lean-forward="false" selection-start-line="272" selection-start-column="67" selection-end-line="272" selection-end-column="67" />
+            <state relative-caret-position="272">
+              <caret line="202" column="9" lean-forward="false" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -318,13 +318,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/br/xplore/HoughTransformation.java</url>
-          <line>279</line>
+          <line>280</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/br/xplore/HoughTransformation.java</url>
-          <line>231</line>
+          <line>232</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
@@ -493,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/br/xplore/HoughTransformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="272" column="67" lean-forward="false" selection-start-line="272" selection-start-column="67" selection-end-line="272" selection-end-column="67" />
+        <state relative-caret-position="272">
+          <caret line="202" column="9" lean-forward="false" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
