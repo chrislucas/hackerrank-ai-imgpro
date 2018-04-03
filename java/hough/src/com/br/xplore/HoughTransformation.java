@@ -77,7 +77,7 @@ public class HoughTransformation {
         return copy;
     }
 
-    private static int [][] createRBGMatrix(String path) throws IOException {
+    private static int [][] createRGBMatrix(String path) throws IOException {
         BufferedImage bufferedImage = readImage(path);
         int h = bufferedImage.getHeight(), w = bufferedImage.getWidth();
         int [][] matrix = new int[h][w];
@@ -248,9 +248,7 @@ public class HoughTransformation {
 
     private static int [][] testApplyMask(BufferedImage imageInGrayScale) {
         int [][] matrix = createIntegerMatrixRGB(imageInGrayScale);
-        int [][] cp = applyMask(SOBEL_X, matrix);
-        cp = applyMask(SOBEL_Y, cp);
-        return cp;
+        return applyMask(SOBEL_Y, applyMask(SOBEL_X, matrix));
     }
 
     private static int [][] testApplySobelOperator(BufferedImage imageInGrayScale) {
@@ -258,22 +256,26 @@ public class HoughTransformation {
         return applySobelOperator(matrix);
     }
 
+    private static void inititalizeProcessHoughTransformation(int [][] pixels) {
+        initialize(pixels.length, pixels[0].length);
+        addPoints(pixels);
+    }
+
     public static void main(String[] args) {
 
         cartesianToPolar(12, 5);
 
         try {
-            String [] imageNames = {"wp4.png", "wp8.jpeg", "Koala.jpg", "wp10.png", "wp11.png"};
-            String path = String.format("raw/imgs/%s", imageNames[4]);
+            String [] imageNames = {"wp3.png", "wp4.png", "wp8.jpeg", "Koala.jpg", "wp10.png", "wp11.png"};
+            String path = String.format("raw/imgs/%s", imageNames[0]);
             BufferedImage imageInGrayScale = copyInGrayScale(readImage(path));
-            /*
-            int [][] cp = testApplyMask(imageInGrayScale);
-            initialize(cp.length, cp[0].length);
-            addPoints(cp);
-            */
-            int [][] cp = testApplySobelOperator(imageInGrayScale);
-            BufferedImage result = createBufferedImage(cp, BufferedImage.TYPE_BYTE_GRAY);
-            boolean flag = writeImage(result, "raw/out/out.jpg", "jpg");
+            // int [][] result = testApplyMask(imageInGrayScale);
+            int [][] result = testApplySobelOperator(imageInGrayScale);
+
+            inititalizeProcessHoughTransformation(result);
+
+            BufferedImage bufferedImage = createBufferedImage(result, BufferedImage.TYPE_BYTE_GRAY);
+            boolean flag = writeImage(bufferedImage, "raw/out/out.jpg", "jpg");
             if (flag) {
                 System.out.println("Imagem criada");
             }
